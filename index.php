@@ -12,8 +12,9 @@
 <header>
     <div class="top-bar">
         <div class="logo">
-            <i class="fas fa-atom"></i>
-            <h2>Meu Sistema</h2>
+            <img src="assets/images/logo2.png" />
+            <!-- <i class="fas fa-atom"></i>
+            <h2>Meu Sistema</h2> -->
         </div>
         <div class="top-menu">
             <img src="media/perfil.jpg" alt="Avatar"/>
@@ -41,7 +42,7 @@
                 <img src="media/perfil.jpg" alt="Avatar"/>
                 <div class="welcome-user">
                     <div>Usuário,</div>
-                    <div class="user">Francisco</div>
+                    <div class="user">Francisco</div>                    
                 </div>
             </div>
             <h3>Geral</h3>

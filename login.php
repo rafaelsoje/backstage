@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="login-area">
             <div class="avatar">
-                <img src="media/avatar.jpg" />
+                <img src="assets/images/logo2.png" />
             </div>
             <form>
                 <div class="input">
