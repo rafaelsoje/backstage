@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'reference' => 'a5ddbc8bf2c7b82cd5f2268726779ffc3193920a',
+        'name' => '__root__',
+        'dev' => true,
+    ),
+    'versions' => array(
+        '__root__' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => 'a5ddbc8bf2c7b82cd5f2268726779ffc3193920a',
+            'dev_requirement' => false,
+        ),
+        'clancats/hydrahon' => array(
+            'pretty_version' => 'v1.1.14',
+            'version' => '1.1.14.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../clancats/hydrahon',
+            'aliases' => array(),
+            'reference' => 'b1e1b2207ff57815a41e6832803cdc1d46e36f19',
+            'dev_requirement' => false,
+        ),
+        'fortawesome/font-awesome' => array(
+            'pretty_version' => '5.15.4',
+            'version' => '5.15.4.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../fortawesome/font-awesome',
+            'aliases' => array(),
+            'reference' => '7d3d774145ac38663f6d1effc6def0334b68ab7e',
+            'dev_requirement' => false,
+        ),
+    ),
+);
