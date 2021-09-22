@@ -2,7 +2,7 @@
 namespace src;
 
 class Config {
-    const BASE_DIR = '/backstage';
+    const BASE_DIR = '/backstage/public';
 
     const DB_DRIVER = 'mysql';
     const DB_HOST = 'localhost';

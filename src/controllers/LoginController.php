@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Rafael
- * Date: 14/01/2021
- * Time: 13:40
- */
 
 namespace src\controllers;
 

@@ -29,17 +29,21 @@ body{
 
 .login-area{
     background-color: var(--principal);
-    width: 400px;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
 }
+.avatar{
+    display: flex;
+    justify-content: center;
+}
 
 .login-area .avatar img{
     margin-top: 30px;
-    width: 250px;
+    width: 70%;
     border-radius: 100px;
 }
 .login-area .label{
@@ -57,22 +61,29 @@ body{
     align-items: center;
 }
 
-.login-area .input input{
-    border-radius: 10px;
+.login-area input{
+    border-radius: 5px;
     border: 1px solid var(--fundo-escuro);
     padding: 10px;
-    width: 300px;
+    width: 100%;
     outline: none;
     margin-bottom: 20px;
     font-size: 16px;
 }
+.login-area .flash{
+    padding: 5px;
+    background-color: #ff0000;
+    color: #fff;
+    margin-bottom: 10px;
+}
 .login-area .button{
-    margin-bottom: 30px;
+    margin-bottom: 30px;    
     padding: 10px;
     outline: none;
     border: none;
     cursor: pointer;
     font-weight: bold;
+    background-color: #ccc;
 }
 
 .login-area a{
