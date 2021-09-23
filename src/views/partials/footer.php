@@ -1,13 +1,15 @@
-<div class="modal">
-    <div class="modal-inner">
-        <a rel="modal:close">&times;</a>
-        <div class="modal-content"></div>
+
+        </div>
     </div>
-</div>
-<script type="text/javascript">
-    const BASE = '<?=$base;?>';
-</script>
-<script type="text/javascript" src="<?=$base;?>/assets/js/script.js"></script>
-<script type="text/javascript" src="<?=$base;?>/assets/js/vanillaModal.js"></script>
+</section>
+<footer>
+    <div class="fixed"></div>
+    <div class="left"></div>
+    <div class="right">
+        <label>Meu Sisitema - Desenvolvido com <span class="health">&#10084</span> por
+            <a href="mailto:rafaelsoje@gmail.com" target="_blank">Rafael Soje</a>
+        </label>
+    </div>
+</footer>
 </body>
 </html>

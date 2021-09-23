@@ -32,10 +32,11 @@ class UserHandler
 
     public function verifyLogin($email, $password)
     {
-        $user = User::select()->where('email', $email)->one();
+        var_dump($email);        
+        $user = User::select()->where('email', $email)->one();            
         if($user){
             if(password_verify($password, $user['password'])){
-                $token = md5(time().rand(0,9999).time());
+                
                 User::update()
                     ->set('token', $token)
                     ->where('email', $email)

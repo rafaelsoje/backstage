@@ -5,9 +5,30 @@ namespace src\controllers;
 
 use core\Controller;
 use src\handlers\UserHandler;
+use src\models\User;
 
 class LoginController extends Controller
 {
+
+    public function get_client_ip() {
+        $ipaddress = '';
+        if (isset($_SERVER['HTTP_CLIENT_IP']))
+            $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+        else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        else if(isset($_SERVER['HTTP_X_FORWARDED']))
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+        else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+            $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+        else if(isset($_SERVER['HTTP_FORWARDED']))
+            $ipaddress = $_SERVER['HTTP_FORWARDED'];
+        else if(isset($_SERVER['REMOTE_ADDR']))
+            $ipaddress = $_SERVER['REMOTE_ADDR'];
+        else
+            $ipaddress = 'UNKNOWN';
+        return $ipaddress;
+    }
+
     public function sigin()
     {
         $flash = '';
@@ -20,25 +41,26 @@ class LoginController extends Controller
         ]);
     }
 
-    public function siginAction()
+    public function siginAction(): void
     {
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
         $password = filter_input(INPUT_POST, 'password');
-
-        if($email && $password){
-            $token = UserHandler::verifyLogin($email, $password);
-            if($token){
-                $_SESSION['token'] = $token;
-                $this->redirect('/');
-            }else{
-                $_SESSION['flash'] = 'Email e/ou senha inválidos';
-                $this->redirect('/login');
-            }
-
-        }else{
-            $_SESSION['flash'] = 'Digite os campos de usuário e senha';
-            $this->redirect('/login');
+        
+        if($email && $password){   
+            
+            $user = User::getUser($email, $password);                        
+            
+            if($user){
+                
+                if(password_verify($password, $user['password'])){                    
+                    $_SESSION['token'] = User::updateToken($email);
+                    User::updateIp($this->get_client_ip(), $email);
+                    $this->redirect('/');
+                }
+            }                    
         }
+        $_SESSION['flash'] = "Usuário e/ou senha incorretos.";           
+        $this->redirect('/login');
     }
 
     public function sigup()
@@ -109,7 +131,7 @@ class LoginController extends Controller
 
     public function logout()
     {
-        $_SESSION['token'] = '';
+        session_unset();
         $this->redirect('/login');
     }
 
