@@ -8,8 +8,14 @@ $router->get('/', 'HomeController@index');
 $router->get('/login', 'LoginController@sigin');
 $router->post('/login', 'LoginController@siginAction');
 
-$router->get('/cadastro', 'LoginController@sigup');
-$router->post('/cadastro', 'LoginController@sigupAction');
+$router->get('/cadastro/usuarios', 'LoginController@sigup');
+
+$router->get('/backup', 'AdminController@backup');
+$router->post('/backup/novo', 'AdminController@addBackup');
+
+
+
+// $router->post('/cadastro', 'LoginController@sigupAction');
 
 $router->get('/senha', 'LoginController@recovery');
 $router->post('/senha', 'LoginController@recoveryAction');

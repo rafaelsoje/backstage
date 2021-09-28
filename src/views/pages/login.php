@@ -19,15 +19,15 @@
                 <div class="input">
                     <label class="label">Login</label>
                     <input type="email" name="email" placeholder="Digite o Usuário" autofocus required/>
-                    <input type="password" name="password" placeholder="Digite a Senha" required/>
-                    
+                    <input type="password" name="password" placeholder="Digite a Senha" required/>                  
                     
                     <?php if(!empty($flash)):?>
                         <?php echo '<div class="flash">'. $flash .'</div>';?>
                         <?php $flash = '';?>
                     <?php endif;?>
-
+                    
                     <input class="button" type="submit" value="Enviar"/>
+                    
                 </div>                
             </form>            
             <a href="#">Esqueci minha senha!</a>            

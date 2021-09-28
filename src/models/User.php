@@ -7,9 +7,26 @@ use core\Model;
 
 class User extends Model
 {
-    public static function checkLogin($token)
+    public static function checkLogin()
     {
-        return self::select()->where('token', $token)->one();
+        if(!empty($_SESSION['token'])){
+            $token =$_SESSION['token'];
+            $data = self::select()->where('token', $token)->one();
+            if($data){
+                $loggedUser = new User();
+                $loggedUser->id = $data['id'];
+                $loggedUser->email = $data['email'];
+                $loggedUser->name = $data['name'];
+                $loggedUser->token = $data['token'];
+                // $loggedUser->birthdate = $data['birthdate'];
+                // $loggedUser->city = $data['city'];
+                // $loggedUser->work = $data['work'];
+                // $loggedUser->avatar = $data['avatar'];
+
+                return $loggedUser;
+            }
+        }
+        return False;
     }
 
     public static function getUser($email)
