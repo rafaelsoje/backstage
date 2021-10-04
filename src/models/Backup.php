@@ -36,8 +36,20 @@ class Backup extends Model
         }
     }
 
-    public static function getBackup()
+    public static function getAllBackup()
     {
         return self::select()->get();
+    }
+
+    public static function getBackup($id)
+    {
+        return self::select()->where('id', $id)->one();
+    }
+
+    public static function deleteBackup($id)
+    {
+        $data = self::getBackup($id);        
+        self::delete()->where('id', $id)->execute();
+        return $data['name'];
     }
 }   

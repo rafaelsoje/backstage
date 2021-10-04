@@ -22,7 +22,7 @@ class AdminController extends Controller
 
     public function backup()
     {   
-       $backup = Backup::getBackup();
+       $backup = Backup::getAllBackup();
 
         $this->render('backup', [
             'loggedUser' => $this->loggedUser,
@@ -35,5 +35,16 @@ class AdminController extends Controller
         $backup = Backup::backup();              
 
         $this->redirect('/backup');
+    }
+
+    public function deleteBackup($id)
+    {
+        $name = Backup::deleteBackup($id);
+        
+        if(file_exists('storage/backup/'.$name)){
+            unlink('storage/backup/'.$name);
+        }
+                
+       $this->redirect('/backup');
     }
 }
