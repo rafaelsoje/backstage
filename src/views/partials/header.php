@@ -83,7 +83,7 @@
                     <h3>Administração</h3>
                     <ul>
                         <li><a href="#"><i class="fas fa-users"></i>Financeiro</a></li>
-                        <li><a href="#"><i class="fas fa-user"></i>Usuários</a></li>
+                        <li><a href="<?=$base;?>/usuario"><i class="fas fa-user"></i>Usuários</a></li>
                         <li><a href="#"><i class="fas fa-key"></i>Permissões</a></li>
                         <li><a href="<?=$base;?>/backup"><i class="fas fa-users"></i>Back up</a></li>
                     </ul>

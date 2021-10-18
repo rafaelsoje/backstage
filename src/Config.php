@@ -9,6 +9,7 @@ class Config {
     const DB_DATABASE = 'backstage';
     CONST DB_USER = 'root';
     const DB_PASS = '';
+    const DB_BACKUP = '/public/storage/backup';
 
     const ERROR_CONTROLLER = 'ErrorController';
     const DEFAULT_ACTION = 'index';

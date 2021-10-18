@@ -48,12 +48,12 @@ class LoginController extends Controller
         
         if($email && $password){   
             
-            $user = User::getUser($email, $password);                        
+            $user = User::getUser($email);                        
             
             if($user){
                 
                 if(password_verify($password, $user['password'])){                    
-                    $_SESSION['token'] = User::updateToken($email);
+                    $_SESSION['token'] = User::updateToken($email);                    
                     User::updateIp($this->get_client_ip(), $email);
                     $this->redirect('/');
                 }

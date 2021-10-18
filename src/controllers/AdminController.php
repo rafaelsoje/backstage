@@ -3,6 +3,7 @@
 namespace src\controllers;
 
 use \core\Controller;
+use src\Config;
 use src\models\User;
 use src\models\Backup;
 
@@ -20,8 +21,23 @@ class AdminController extends Controller
         }
     }
 
+    public function usuario()
+    {
+        $getUser = User::getAllUser();        
+        $this->render('user',[
+            'loggedUser' => $this->loggedUser,
+            'getUser' => $getUser
+        ]);
+    }
+
     public function backup()
-    {   
+    {
+        if(!is_dir("../".Config::DB_BACKUP)){
+            
+            mkdir('../' . Config::DB_BACKUP);
+            chmod('../' . Config::DB_BACKUP, 0777);            
+        }        
+
        $backup = Backup::getAllBackup();
 
         $this->render('backup', [

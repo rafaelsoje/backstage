@@ -29,6 +29,11 @@ class User extends Model
         return False;
     }
 
+    public static function getAllUser()
+    {
+        return self::select()->get();
+    }
+
     public static function getUser($email)
     {
         return self::select()->where('email', $email)->one();        
@@ -39,6 +44,11 @@ class User extends Model
         $token = md5(time().rand(0,9999).time());
         self::update()->set('token', $token)->where('email', $email)->execute();        
         return $token;
+    }
+
+    public static function updateLastLogin($email)
+    {
+        self::update()->set('last_login', date("Y-m-d H:i:s"))->where('email', $email)->execute();
     }
 
     public static function updateIp($ip , $email)

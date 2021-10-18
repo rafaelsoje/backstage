@@ -15,6 +15,7 @@ $router->get('/cadastro/usuarios', 'LoginController@sigup');
 $router->get('/backup', 'AdminController@backup');
 $router->get('/backup/delete/{id}', 'AdminController@deleteBackup');
 $router->post('/backup/novo', 'AdminController@addBackup');
+$router->get('/usuario', 'AdminController@usuario');
 
 
 
