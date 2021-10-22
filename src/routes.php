@@ -1,5 +1,6 @@
 <?php
 use core\Router;
+use src\controllers\AdminController;
 
 $router = new Router();
 
@@ -16,6 +17,8 @@ $router->get('/backup', 'AdminController@backup');
 $router->get('/backup/delete/{id}', 'AdminController@deleteBackup');
 $router->post('/backup/novo', 'AdminController@addBackup');
 $router->get('/usuario', 'AdminController@usuario');
+$router->get('/usuario/novo', 'AdminController@formUser');
+$router->post('/usuario/novo', 'AdminController@addUser');
 
 
 

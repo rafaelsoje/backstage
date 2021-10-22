@@ -2,7 +2,7 @@
 <section class="users">
     <h1>Lista de Usuários</h1>
     <?php if(!empty($getUser)):?>
-            <form action="<?=$base;?>/backup/novo" method="post">
+            <form action="<?=$base;?>/usuario/novo" method="get">
                 <input class="warning" type="submit" value="Novo Usuário"/>
             </form>
 

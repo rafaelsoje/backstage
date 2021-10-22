@@ -30,6 +30,18 @@ class AdminController extends Controller
         ]);
     }
 
+    public function formUser()
+    {
+        $this->render('adduser', [
+            'loggedUser' => $this->loggedUser            
+        ]);
+    }
+
+    public function addUser()
+    {
+
+    }
+
     public function backup()
     {
         if(!is_dir("../".Config::DB_BACKUP)){
@@ -48,10 +60,25 @@ class AdminController extends Controller
 
     public function addBackup(){
 
-        $backup = Backup::backup();              
+        $numBackup = 10;
+        $backup = Backup::backup();                
+        
+        if(count($backup) > $numBackup){
+            
+            while(count($backup) > $numBackup){                
+                $id = '9999999';
+                foreach($backup as $item){
+                    if($item['id'] < $id){
+                        $id = $item['id'];
+                    }
+                }                
+                $this->deleteBackup($id);
+                $backup = Backup::backup(); 
+            }
+        }
 
         $this->redirect('/backup');
-    }
+    }    
 
     public function deleteBackup($id)
     {

@@ -26,10 +26,9 @@ class Backup extends Model
                 'created_at' => date("Y-m-d H:i:s"),
                 'size' => $size           
             ])->execute();
-           
-            $data = self::select()->get(); 
+
+            return self::getAllBackup();
             
-            return $data;            
         } catch (\Exception $e) {
             echo 'mysqldump-php error: ' . $e->getMessage(); 
             exit;           
@@ -39,7 +38,7 @@ class Backup extends Model
     public static function getAllBackup()
     {
         return self::select()->orderBy('id', 'desc')->get();
-    }
+    }    
 
     public static function getBackup($id)
     {
