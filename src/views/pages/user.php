@@ -10,12 +10,14 @@
             <tr>                
                 <th>Nome</th>
                 <th>Email</th>
+                <th>Nível acesso</th>
                 <th>Ação</th>
             </tr>            
             <?php foreach($getUser as $user):?>  
             <tr> 
                 <td><?=$user['name'];?></td>
                 <td><?=$user['email'];?></td>                
+                <td>Administrador</td> 
                 <td>
                     <a class="success" href="#">Visualizar</a>
                     <a class="warning" href="#">Editar</a>

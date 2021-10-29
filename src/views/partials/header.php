@@ -77,7 +77,7 @@
                         <li><a href="#"><i class="fas fa-users"></i>Movimentação</a></li>
                         <li><a href="#"><i class="fas fa-users"></i>Consultas</a></li>
                         <li><a href="#"><i class="fas fa-users"></i>Relatórios</a></li>
-                        <li><a href="#"><i class="fas fa-users"></i>Perfil do Usuário</a></li>
+                        <li><a href="<?=$base;?>/usuario/perfil"><i class="fas fa-users"></i>Perfil do Usuário</a></li>
                         
                     </ul>
                     <h3>Administração</h3>
